@@ -8,7 +8,7 @@ import { UserContext } from './context/UserContext';
 
 export const Router = () => {
     const { user } = useContext(UserContext)
-    console.log(user);
+
     return (
         <Routes>
             <Route path='/' element={<Home />} />

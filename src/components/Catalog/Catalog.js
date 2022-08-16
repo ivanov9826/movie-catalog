@@ -1,12 +1,24 @@
+import { useEffect, useState } from "react"
+import { getAll } from "../../services/getAll";
 import { MovieCard } from "../MovieCard/MovieCard"
 import styles from './Catalog.module.css'
 
 export const Catalog = () => {
+    const [movies , setMovies] = useState([]);
+
+    useEffect(() => {
+        getAll()
+            .then(result => {
+
+                setMovies(result)
+            })
+    }, [])
+
     return (
         <div>
             <h1>Catalog</h1>
             <div className={styles.cardWrapper}>
-                {[1 , 2 , 3 , 4 ,5 , 6, 7 ,8 ,9 , 10 ].map(movie => <MovieCard />)}
+                {movies.map(movie => <MovieCard key = {movie._id} movie = {movie}/>)}
 
             </div>
         </div>
