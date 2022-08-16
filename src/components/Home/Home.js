@@ -1,5 +1,7 @@
+import styles from "./Home.module.css"
+
 export const Home = () => {
     return (
-        <div>Hello world!</div>
+        <h1 className={styles.homeHeader}>Movie Catalog</h1>
     )
 }

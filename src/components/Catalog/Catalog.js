@@ -16,7 +16,7 @@ export const Catalog = () => {
 
     return (
         <div>
-            <h1>Catalog</h1>
+            <h1 className={styles.catalogHeader}>Catalog</h1>
             <div className={styles.cardWrapper}>
                 {movies.map(movie => <MovieCard key = {movie._id} movie = {movie}/>)}
 
