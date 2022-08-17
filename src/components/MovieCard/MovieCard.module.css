@@ -1,5 +1,25 @@
-.cardContent{
+.cardContent {
     display: flex;
     flex-direction: column;
+    border-style: solid;
+    border-color: white;
+    text-align: center;
+    text-decoration-color: white;
+}
 
+.detailsButton {
+
+    background-color: #2A265F;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.names{
+    color: white;
 }
