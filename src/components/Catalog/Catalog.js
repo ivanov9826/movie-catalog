@@ -9,7 +9,6 @@ export const Catalog = () => {
     useEffect(() => {
         getAll()
             .then(result => {
-
                 setMovies(result)
             })
     }, [])

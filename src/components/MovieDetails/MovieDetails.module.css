@@ -1,0 +1,32 @@
+.name{
+    color: white;
+    text-align: center;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    width: 980px;
+    margin: 90px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    transition: all 0.4s;
+}
+
+.buttons {
+    height: 10%;
+    text-align: right;
+    padding-right: 15px;
+    padding-bottom: 40px;
+}
+
+.button {
+    height: 15%;
+    background-color: #54557b;
+    padding: 14px;
+    margin-top: auto;
+    font-size: 21px;
+    color: rgb(255, 255, 255);
+}

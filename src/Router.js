@@ -6,6 +6,8 @@ import { Register } from './components/Register/Register';
 import { useContext } from "react";
 import { UserContext } from './context/UserContext';
 
+import { MovieDetails } from './components/MovieDetails/MovieDetails';
+
 export const Router = () => {
     const { user } = useContext(UserContext)
 
@@ -13,7 +15,7 @@ export const Router = () => {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/catalog' element={<Catalog />} />
-            
+            <Route path='/catalog/:id' element={<MovieDetails />} />
             <Route path='/register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
         </Routes>
