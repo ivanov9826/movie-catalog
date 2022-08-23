@@ -1,0 +1,8 @@
+.loginPage {
+    position:inherit;
+    width: 20rem;
+    height: auto;
+    border-radius: 20px;
+    padding: 20px;
+    background: #3e4443;
+}

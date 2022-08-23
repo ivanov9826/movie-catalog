@@ -7,6 +7,7 @@ import { Home } from './components/Home/Home';
 import { Router } from './Router';
 import { useState } from 'react';
 import { UserContext } from './context/UserContext';
+import { Footer } from './components/Footer/Footer';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Router />
 
       </div>
+      <Footer />
     </div>
     </UserContext.Provider>
   );

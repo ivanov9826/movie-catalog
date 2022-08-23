@@ -3,5 +3,11 @@
     gap: 1rem;
     padding:1rem 0;
     justify-content: center;
-    background-color: rgb(108, 253, 92);
+    background-color: rgb(92, 92, 92);
+}
+
+.links{
+    text-decoration: none;
+    color: white;
+    /* color: initial; */
 }

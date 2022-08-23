@@ -2,6 +2,7 @@ import { login } from "../../services/login";
 import { useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
+import styles from "./Login.module.css"
 
 
 
@@ -40,11 +41,11 @@ export const Login = () => {
     }
 
     return (
-        <section id="register-page" className="content auth">
-        <form id="register" onSubmit={onSubmitHandler}>
-            <div className="container">
-                <div className="brand-logo"></div>
-                <h1>Register</h1>
+        <section id="login-page" className={styles.loginPage}>
+        <form id="login" onSubmit={onSubmitHandler}>
+            <div>
+                
+                <h1>Login</h1>
 
                 <label htmlFor="username">Username:</label>
                 <input type="username" id="username" name="username" onChange={(e)=> onFormFieldChange('username' , e.target.value)}/>
@@ -55,8 +56,8 @@ export const Login = () => {
 
                 <button className="btn submit" type="submit">Login</button>
 
-                <p className="field">
-                    <span>If you already have profile click <a href="/login">here</a></span>
+                <p>
+                    <span>If you don't have a profile click <a href="/login">here</a></span>
                 </p>
             </div>
         </form>

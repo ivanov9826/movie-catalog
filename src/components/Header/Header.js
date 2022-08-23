@@ -5,19 +5,19 @@ export const Header = () => {
     return (
         <div className={styles.headerWrapper}>
             <div>
-                <Link to='/' >Home</Link>
+                <Link to='/' className={styles.links}>Home</Link>
             </div>
             <div>
-                <Link to='/catalog' >Catalog</Link>
+                <Link to='/catalog' className={styles.links}>Catalog</Link>
             </div>
             <div>
-                <Link to='/login' >Login</Link>
+                <Link to='/login' className={styles.links}>Login</Link>
             </div>
             <div>
-                <Link to='/register' >Register</Link>
+                <Link to='/register' className={styles.links}>Register</Link>
             </div>
             <div>
-                <Link to='/logout' >Logout</Link>
+                <Link to='/logout' className={styles.links}>Logout</Link>
             </div>
         </div>
     );
