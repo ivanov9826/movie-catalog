@@ -6,6 +6,7 @@ import styles from "./Header.module.css";
 export const Header = () => {
   const navigate = useNavigate();
   const userCtx = useContext(UserContext);
+  const username = userCtx.user.username || null;
 
   const onLogoutHandler = () => {
     userCtx.logout();
@@ -24,23 +25,26 @@ export const Header = () => {
           Catalog
         </Link>
       </div>
-      {!userCtx.user.username && (
+      {!username && (
         <div>
           <Link to="/login" className={styles.links}>
             Login
           </Link>
         </div>
       )}
-      {!userCtx.user.username && (
+      {!username && (
         <div>
           <Link to="/register" className={styles.links}>
             Register
           </Link>
         </div>
       )}
-      {userCtx.user.username && (
+      {username && (
         <div>
-          <button onClick={onLogoutHandler}>Logout</button>
+          <span className={styles.username}>Welcome , {username}</span>
+          <button onClick={onLogoutHandler} className={styles.button}>
+            Logout
+          </button>
         </div>
       )}
     </div>
