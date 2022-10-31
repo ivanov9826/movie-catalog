@@ -1,13 +1,15 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../context/user-context";
 import styles from "./Header.module.css";
 
 export const Header = () => {
+  const navigate = useNavigate();
   const userCtx = useContext(UserContext);
 
   const onLogoutHandler = () => {
     userCtx.logout();
+    navigate("/");
   };
 
   return (

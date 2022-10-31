@@ -45,7 +45,7 @@ const UserProvider = (props) => {
   };
 
   const logout = () => {
-    setUser(null);
+    setUser({});
   };
 
   const userContext = {
