@@ -1,6 +1,6 @@
-import { baseUrl } from "../constants/baseUrl";
+// import { baseUrl } from "../constants/baseUrl";
 
-export const getAll = () => {
-    return fetch(`${baseUrl}/movie`)
-            .then(res => res.json())
-}
+// export const getAll = () => {
+//     return fetch(`${baseUrl}/movie`)
+//             .then(res => res.json())
+// }

@@ -1,23 +1,19 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Catalog } from './components/Catalog/Catalog';
-import { Home } from './components/Home/Home';
-import { Login } from './components/Login/Login';
-import { Register } from './components/Register/Register';
-import { useContext } from "react";
-import { UserContext } from './context/UserContext';
+import { Routes, Route } from "react-router-dom";
+import { Catalog } from "./components/Catalog/Catalog";
+import { Home } from "./components/Home/Home";
+import { Login } from "./components/Login/Login";
+import { Register } from "./components/Register/Register";
 
-import { MovieDetails } from './components/MovieDetails/MovieDetails';
+import { MovieDetails } from "./components/MovieDetails/MovieDetails";
 
 export const Router = () => {
-    const { user } = useContext(UserContext)
-
-    return (
-        <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/catalog' element={<Catalog />} />
-            <Route path='/catalog/:id' element={<MovieDetails />} />
-            <Route path='/register' element={<Register/>} />
-            <Route path='/login' element={<Login/>} />
-        </Routes>
-    )
-}
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/catalog" element={<Catalog />} />
+      <Route path="/catalog/:id" element={<MovieDetails />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  );
+};

@@ -1,35 +1,15 @@
-
-import styles from './App.module.css'
-import { Header } from './components/Header/Header';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Catalog } from './components/Catalog/Catalog';
-import { Home } from './components/Home/Home';
-import { Router } from './Router';
-import { useState } from 'react';
-import { UserContext } from './context/UserContext';
-import { Footer } from './components/Footer/Footer';
-
+import { Header } from "./components/Header/Header";
+import { Router } from "./Router";
+import { Footer } from "./components/Footer/Footer";
+import UserProvider from "./context/UserProvider";
 
 function App() {
-
-  const [user, setUser] = useState({
-    username: '',
-    id: ''
-  })
-
-
-
   return (
-    <UserContext.Provider value= {{user , setUser}}>
-    <div className={styles.App}>
+    <UserProvider>
       <Header />
-      <div>
-        <Router />
-
-      </div>
+      <Router />
       <Footer />
-    </div>
-    </UserContext.Provider>
+    </UserProvider>
   );
 }
 

@@ -1,66 +1,98 @@
-import { login } from "../../services/login";
-import { useState } from "react";
-import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
-import styles from "./Login.module.css"
-
-
+import UserContext from "../../context/user-context";
+import styles from "./Login.module.css";
+import useInput from "../../hooks/useInput";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const userCtx = useContext(UserContext);
+  const navigate = useNavigate();
 
-    const { setUser } = useContext(UserContext);
+  const isSixSymbols = (pass) => pass.length > 5;
+  const isEmail = (email) => email.includes("@");
 
-    const [formValues , setFormValues] = useState({
-        username: '',
-        password: ''
-    });
+  const {
+    value: emailValue,
+    isValid: emailIsValid,
+    hasError: emailHasError,
+    setInputValueHandler: setEmailValueHandler,
+    onBlurHandler: onEmailBlurHandler,
+    reset: emailReset,
+  } = useInput(isEmail);
 
-    const onFormFieldChange = (name , value) => {
-        setFormValues(state => {
+  const {
+    value: passValue,
+    isValid: passIsValid,
+    hasError: passHasError,
+    setInputValueHandler: setPassValueHandler,
+    onBlurHandler: onPassBlurHandler,
+    reset: passReset,
+  } = useInput(isSixSymbols);
 
-            return {
-                ...state,
-                [name]: value
-            }
-        })
-    };
+  let formIsValid = false;
 
-    const onSubmitHandler = async (e) => {
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
 
-        e.preventDefault();
-
-
-        const user = await login(formValues.username , formValues.password);
-        console.log(user);
-        if(user.username){
-            setUser({
-                username: user.username ,
-                id: user._id
-            })
-        }
+    if (!formIsValid) {
+      return;
     }
 
-    return (
-        <section id="login-page" className={styles.loginPage}>
-        <form id="login" onSubmit={onSubmitHandler}>
-            <div>
-                
-                <h1>Login</h1>
+    userCtx.login(emailValue, passValue);
 
-                <label htmlFor="username">Username:</label>
-                <input type="username" id="username" name="username" onChange={(e)=> onFormFieldChange('username' , e.target.value)}/>
+    emailReset();
+    passReset();
 
-                <label htmlFor="pass">Password:</label>
-                <input type="password" name="password" id="register-password" onChange={(e)=> onFormFieldChange('password' , e.target.value)}/>
+    navigate("/");
+  };
 
+  if (emailIsValid && passIsValid) {
+    formIsValid = true;
+  }
 
-                <button className="btn submit" type="submit">Login</button>
+  return (
+    <form id="register" onSubmit={onSubmitHandler}>
+      <div className={styles.container}>
+        <h1>Register</h1>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            onChange={setEmailValueHandler}
+            onBlur={onEmailBlurHandler}
+            value={emailValue}
+          />
+          {emailHasError && (
+            <p className={styles.errorText}>Please enter a valid email!</p>
+          )}
+        </div>
+        <div>
+          <label htmlFor="pass">Password:</label>
+          <input
+            type="password"
+            id="password"
+            onChange={setPassValueHandler}
+            onBlur={onPassBlurHandler}
+            value={passValue}
+          />
+          {passHasError && (
+            <p className={styles.errorText}>
+              Please enter a valid password!(Six symbols or more)
+            </p>
+          )}
+        </div>
 
-                <p>
-                    <span>If you don't have a profile click <a href="/login">here</a></span>
-                </p>
-            </div>
-        </form>
-    </section>
-    )
-}
+        <button className="btn submit" type="submit" disabled={!formIsValid}>
+          Login
+        </button>
+
+        <p className="field">
+          <span>
+            If you already have profile click <a href="/login">here</a>
+          </span>
+        </p>
+      </div>
+    </form>
+  );
+};

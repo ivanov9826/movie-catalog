@@ -1,13 +1,13 @@
-.headerWrapper{
-    display: flex;
-    gap: 1rem;
-    padding:1rem 0;
-    justify-content: center;
-    background-color: rgb(92, 92, 92);
+.headerWrapper {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  justify-content: center;
+  background-color: #29303c;
+  font-weight: bold;
 }
 
-.links{
-    text-decoration: none;
-    color: white;
-    /* color: initial; */
+.links {
+  text-decoration: none;
+  color: white;
 }

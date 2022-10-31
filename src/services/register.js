@@ -1,16 +1,22 @@
-import { baseUrl } from "../constants/baseUrl"
-export const register =  async(username , password) => {
-    return await fetch(`${baseUrl}/user/register` , {
-        method: 'POST' , 
-        headers: {
-            'content-type' : 'application/json'
-        },
-        body: JSON.stringify({username , password})
-    })
-}
+// import { regUrl } from "../constants/baseUrl";
+// export const register = async (email, password) => {
+//   const response = await fetch(regUrl, {
+//     method: "POST",
+//     body: JSON.stringify({
+//       email: email,
+//       password: password,
+//       returnSecureToken: true,
+//     }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   const data = await response.json();
+//   console.log(data);
+// };
 
 // return await fetch(`http://localhost:9999/api/movie/` , {
-//     method: 'POST' , 
+//     method: 'POST' ,
 //     headers: {
 //         'content-type' : 'application/json'
 //     },
