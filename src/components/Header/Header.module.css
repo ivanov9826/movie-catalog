@@ -5,6 +5,7 @@
   justify-content: center;
   background-color: #29303c;
   font-weight: bold;
+  align-items: center;
 }
 
 .links {
@@ -14,7 +15,7 @@
 
 .username {
   color: white;
-  margin-left: 10rem;
+  margin-left: 15rem;
 }
 
 .button {

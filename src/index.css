@@ -13,3 +13,7 @@ body {
   height: 100vh;
   background-image: url("https://wallpaperaccess.com/full/4840775.jpg");
 }
+
+p {
+  margin: 0;
+}

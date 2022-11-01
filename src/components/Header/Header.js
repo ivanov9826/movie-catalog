@@ -6,7 +6,7 @@ import styles from "./Header.module.css";
 export const Header = () => {
   const navigate = useNavigate();
   const userCtx = useContext(UserContext);
-  const username = userCtx.user.username || null;
+  const username = userCtx.user || null;
 
   const onLogoutHandler = () => {
     userCtx.logout();
@@ -36,6 +36,13 @@ export const Header = () => {
         <div>
           <Link to="/register" className={styles.links}>
             Register
+          </Link>
+        </div>
+      )}
+      {username && (
+        <div>
+          <Link to="/add-movie" className={styles.links}>
+            Add Movie
           </Link>
         </div>
       )}

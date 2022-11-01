@@ -6,14 +6,14 @@ export const MovieCard = ({ movie }) => {
     <div className={styles.cardContent}>
       <img
         className={styles.img}
-        src={movie.imageUrl}
+        src={movie.poster}
         width={"auto"}
         height={200}
         alt="Movie Poster"
       />
-      <h2 className={styles.names}>{movie.name}</h2>
-      <h5 className={styles.names}>{movie.author.username}</h5>
-      <Link to={`/catalog/${movie._id}`} className={styles.detailsButton}>
+      <h2 className={styles.names}>{movie.title}</h2>
+      <h5 className={styles.names}>{movie.director}</h5>
+      <Link to={`/catalog/${movie.id}`} className={styles.detailsButton}>
         Details
       </Link>
     </div>

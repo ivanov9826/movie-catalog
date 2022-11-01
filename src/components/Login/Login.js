@@ -2,11 +2,11 @@ import { useContext } from "react";
 import UserContext from "../../context/user-context";
 import styles from "./Login.module.css";
 import useInput from "../../hooks/useInput";
-import { useNavigate } from "react-router-dom";
+
+import { useEffect } from "react";
 
 export const Login = () => {
   const userCtx = useContext(UserContext);
-  const navigate = useNavigate();
 
   const isSixSymbols = (pass) => pass.length > 5;
   const isEmail = (email) => email.includes("@");
@@ -17,7 +17,6 @@ export const Login = () => {
     hasError: emailHasError,
     setInputValueHandler: setEmailValueHandler,
     onBlurHandler: onEmailBlurHandler,
-    reset: emailReset,
   } = useInput(isEmail);
 
   const {
@@ -26,36 +25,35 @@ export const Login = () => {
     hasError: passHasError,
     setInputValueHandler: setPassValueHandler,
     onBlurHandler: onPassBlurHandler,
-    reset: passReset,
   } = useInput(isSixSymbols);
 
   let formIsValid = false;
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-
-    if (!formIsValid) {
-      return;
+    try {
+      userCtx.login(emailValue, passValue);
+    } catch (error) {
+      console.log(error);
     }
 
-    userCtx.login(emailValue, passValue);
-
-    emailReset();
-    passReset();
-
-    navigate("/");
+    //Add error handling
   };
 
   if (emailIsValid && passIsValid) {
     formIsValid = true;
   }
 
+  useEffect(() => {
+    return () => {};
+  }, []);
+
   return (
-    <form id="register" onSubmit={onSubmitHandler}>
-      <div className={styles.container}>
-        <h1>Register</h1>
-        <div>
-          <label htmlFor="email">Email:</label>
+    <form id="login" onSubmit={onSubmitHandler}>
+      <div className={styles.controlGroup}>
+        <h1>Login</h1>
+        <div className={styles.formControl}>
+          <label>Email:</label>
           <input
             type="email"
             id="email"
@@ -67,8 +65,8 @@ export const Login = () => {
             <p className={styles.errorText}>Please enter a valid email!</p>
           )}
         </div>
-        <div>
-          <label htmlFor="pass">Password:</label>
+        <div className={styles.formControl}>
+          <label>Password:</label>
           <input
             type="password"
             id="password"
@@ -82,11 +80,15 @@ export const Login = () => {
             </p>
           )}
         </div>
-
-        <button className="btn submit" type="submit" disabled={!formIsValid}>
-          Login
-        </button>
-
+        <div className={styles.formActions}>
+          <button
+            className={styles.button}
+            type="submit"
+            disabled={!formIsValid}
+          >
+            Login
+          </button>
+        </div>
         <p className="field">
           <span>
             If you already have profile click <a href="/login">here</a>

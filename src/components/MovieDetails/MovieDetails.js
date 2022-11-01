@@ -1,27 +1,37 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { baseUrl } from "../../constants/baseUrl";
+import UserContext from "../../context/user-context";
+import { getOne } from "../../lib/api";
 import styles from "./MovieDetails.module.css";
 
 export const MovieDetails = () => {
+  const { user } = useContext(UserContext);
   const [movie, setMovie] = useState({});
   const { id } = useParams();
+  let isAuthor = false;
 
   useEffect(() => {
-    fetch(`${baseUrl}/movie/${id}`)
-      .then((res) => res.json())
-      .then((res) => setMovie(res));
-  }, [id]);
+    getOne(id).then((result) => {
+      setMovie(result);
+    });
+  }, []);
+  if (user === movie.addedBy) {
+    isAuthor = true;
+  }
 
   return (
     <div className={styles.cardContent}>
-      <img src={movie.imageUrl} height="250" width="250" alt="Movie Poster" />
-      <h2 className={styles.name}>{movie.name}</h2>
-      <h5 className={styles.name}>{movie.details}</h5>
-      <div className={styles.buttons}>
-        <button className={styles.button}>Delete</button>
-        <button className={styles.button}>Edit</button>
-      </div>
+      <img src={movie.poster} height="360" width="360" alt="Movie Poster" />
+      <h2 className={styles.name}>{movie.title}</h2>
+      <p className={styles.name}>{movie.director}</p>
+      <span className={styles.name}>{movie.details}</span>
+      {isAuthor && (
+        <div className={styles.buttons}>
+          <button className={styles.button}>Delete</button>
+          <button className={styles.button}>Edit</button>
+        </div>
+      )}
     </div>
   );
 };

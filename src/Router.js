@@ -5,6 +5,7 @@ import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
 
 import { MovieDetails } from "./components/MovieDetails/MovieDetails";
+import { MovieForm } from "./components/MovieCreate/MovieForm";
 
 export const Router = () => {
   return (
@@ -14,6 +15,7 @@ export const Router = () => {
       <Route path="/catalog/:id" element={<MovieDetails />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/add-movie" element={<MovieForm />} />
     </Routes>
   );
 };

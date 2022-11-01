@@ -62,9 +62,9 @@ export const Register = () => {
 
   return (
     <form id="register" onSubmit={onSubmitHandler}>
-      <div className={styles.container}>
+      <div className={styles.controlGroup}>
         <h1>Register</h1>
-        <div>
+        <div className={styles.formControl}>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -77,7 +77,7 @@ export const Register = () => {
             <p className={styles.errorText}>Please enter a valid email!</p>
           )}
         </div>
-        <div>
+        <div className={styles.formControl}>
           <label htmlFor="pass">Password:</label>
           <input
             type="password"
@@ -92,7 +92,7 @@ export const Register = () => {
             </p>
           )}
         </div>
-        <div>
+        <div className={styles.formControl}>
           <label htmlFor="con-pass">Confirm Password:</label>
           <input
             type="password"
@@ -105,9 +105,11 @@ export const Register = () => {
             <p className={styles.errorText}>Passwords must match!</p>
           )}
         </div>
-        <button className="btn submit" type="submit" disabled={!formIsValid}>
-          Register
-        </button>
+        <div className={styles.formActions}>
+          <button type="submit" disabled={!formIsValid}>
+            Register
+          </button>
+        </div>
 
         <p className="field">
           <span>
