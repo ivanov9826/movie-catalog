@@ -49,3 +49,17 @@ export const getOne = async (id) => {
 
   return data;
 };
+
+export const removeMovie = (id) => {
+  fetch(
+    `https://movie-catalog-i-default-rtdb.europe-west1.firebasedatabase.app/movies/${id}.json`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  return null;
+};
