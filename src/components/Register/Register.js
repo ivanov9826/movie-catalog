@@ -37,7 +37,7 @@ export const Register = () => {
     setInputValueHandler: setConfirmPassValueHandler,
     onBlurHandler: onConfirmPassBlurHandler,
     reset: confirmPassReset,
-  } = useInput((value) => value === passValue);
+  } = useInput((value) => value === passValue && value.length !== 0);
 
   let formIsValid = false;
 

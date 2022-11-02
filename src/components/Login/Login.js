@@ -3,8 +3,6 @@ import UserContext from "../../context/user-context";
 import styles from "./Login.module.css";
 import useInput from "../../hooks/useInput";
 
-import { useEffect } from "react";
-
 export const Login = () => {
   const userCtx = useContext(UserContext);
 
@@ -13,7 +11,7 @@ export const Login = () => {
 
   const {
     value: emailValue,
-    isValid: emailIsValid,
+
     hasError: emailHasError,
     setInputValueHandler: setEmailValueHandler,
     onBlurHandler: onEmailBlurHandler,
@@ -21,37 +19,25 @@ export const Login = () => {
 
   const {
     value: passValue,
-    isValid: passIsValid,
+
     hasError: passHasError,
     setInputValueHandler: setPassValueHandler,
     onBlurHandler: onPassBlurHandler,
   } = useInput(isSixSymbols);
 
-  let formIsValid = false;
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    try {
-      userCtx.login(emailValue, passValue);
-    } catch (error) {
-      console.log(error);
-    }
 
-    //Add error handling
+    userCtx.login(emailValue, passValue);
   };
-
-  if (emailIsValid && passIsValid) {
-    formIsValid = true;
-  }
-
-  useEffect(() => {
-    return () => {};
-  }, []);
 
   return (
     <form id="login" onSubmit={onSubmitHandler}>
       <div className={styles.controlGroup}>
         <h1>Login</h1>
+        {userCtx.hasError && (
+          <p className={styles.errorText}>Wrong username or password!</p>
+        )}
         <div className={styles.formControl}>
           <label>Email:</label>
           <input
@@ -81,11 +67,7 @@ export const Login = () => {
           )}
         </div>
         <div className={styles.formActions}>
-          <button
-            className={styles.button}
-            type="submit"
-            disabled={!formIsValid}
-          >
+          <button className={styles.button} type="submit">
             Login
           </button>
         </div>

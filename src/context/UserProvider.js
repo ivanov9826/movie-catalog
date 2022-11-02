@@ -7,6 +7,7 @@ import UserContext from "./user-context";
 
 const UserProvider = (props) => {
   const [user, setUser] = useState("");
+  const [hasError, setHasError] = useState(null);
   const navigate = useNavigate();
 
   const login = async (email, password) => {
@@ -24,14 +25,14 @@ const UserProvider = (props) => {
       });
 
       if (!response.ok) {
+        setHasError(true);
         throw new Error("Wrong Email or Password!");
       }
       const data = await response.json();
       setUser(usernameNormalizer(data));
+      setHasError(false);
       navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const register = async (email, password) => {
@@ -59,6 +60,7 @@ const UserProvider = (props) => {
     login,
     register,
     logout,
+    hasError,
   };
 
   return (

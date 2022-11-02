@@ -10,12 +10,12 @@ export const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { id } = useParams();
   let isAuthor = false;
-
+  console.log(user);
   useEffect(() => {
     getOne(id).then((result) => {
       setMovie(result);
     });
-  }, []);
+  }, [id]);
   if (user === movie.addedBy) {
     isAuthor = true;
   }

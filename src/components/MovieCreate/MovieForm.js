@@ -7,7 +7,7 @@ import { addMovie } from "../../lib/api";
 
 export const MovieForm = () => {
   const userCtx = useContext(UserContext);
-  const username = userCtx.user.username;
+  const username = userCtx.user;
 
   const navigate = useNavigate();
 
@@ -22,7 +22,6 @@ export const MovieForm = () => {
     const directorInputValue = directorInputRef.current.value;
     const posterInputValue = posterInputRef.current.value;
     const detailsInputValue = detailsInputRef.current.value;
-
     const newMovie = {
       title: titleInputValue,
       director: directorInputValue,

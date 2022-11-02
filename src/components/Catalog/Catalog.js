@@ -11,7 +11,7 @@ export const Catalog = () => {
     getAll().then((result) => {
       setMovies(result);
     });
-  }, []);
+  }, [movies]);
 
   return (
     <div>
