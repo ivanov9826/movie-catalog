@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../../context/user-context";
 import { getOne, removeMovie } from "../../lib/api";
 import styles from "./MovieDetails.module.css";
+import { NavLink } from "react-router-dom";
 
 export const MovieDetails = () => {
   const { user } = useContext(UserContext);
@@ -29,16 +30,19 @@ export const MovieDetails = () => {
 
   return (
     <div className={styles.cardContent}>
-      <img src={movie.poster} height="360" width="360" alt="Movie Poster" />
-      <h2 className={styles.name}>{movie.title}</h2>
-      <p className={styles.name}>{movie.director}</p>
-      <span className={styles.name}>{movie.details}</span>
+      <img src={movie.poster} className={styles.img} alt="Movie Poster" />
+      <h2 className={styles.title}>{movie.title}</h2>
+      <p className={styles.director}>{movie.director}</p>
+      <span className={styles.details}>{movie.details}</span>
       {isAuthor && (
         <div className={styles.buttons}>
           <button className={styles.button} onClick={onDeleteHandler}>
             Delete
           </button>
-          <button className={styles.button}>Edit</button>
+
+          <NavLink to={`/edit-movie/${id}`} className={styles.link}>
+            Edit
+          </NavLink>
         </div>
       )}
     </div>

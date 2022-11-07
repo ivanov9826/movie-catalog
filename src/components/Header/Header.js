@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from "../../context/user-context";
 import styles from "./Header.module.css";
 
@@ -14,46 +14,87 @@ export const Header = () => {
   };
 
   return (
-    <div className={styles.headerWrapper}>
-      <div>
-        <Link to="/" className={styles.links}>
-          Home
-        </Link>
-      </div>
-      <div>
-        <Link to="/catalog" className={styles.links}>
-          Catalog
-        </Link>
-      </div>
-      {!username && (
-        <div>
-          <Link to="/login" className={styles.links}>
-            Login
-          </Link>
-        </div>
-      )}
-      {!username && (
-        <div>
-          <Link to="/register" className={styles.links}>
-            Register
-          </Link>
-        </div>
-      )}
-      {username && (
-        <div>
-          <Link to="/add-movie" className={styles.links}>
-            Add Movie
-          </Link>
-        </div>
-      )}
-      {username && (
-        <div>
-          <span className={styles.username}>Welcome , {username}</span>
-          <button onClick={onLogoutHandler} className={styles.button}>
-            Logout
-          </button>
-        </div>
-      )}
-    </div>
+    <header className={styles.header}>
+      <div className={styles.logo}>Movie Catalog</div>
+      <nav className={styles.nav}>
+        <ul>
+          <li>
+            <NavLink
+              to="/"
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? "#5b4985" : "white",
+                };
+              }}
+              activeClassName={styles.active}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/catalog"
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? "#5b4985" : "white",
+                };
+              }}
+            >
+              Catalog
+            </NavLink>
+          </li>
+          {!username && (
+            <li>
+              <NavLink
+                to="/login"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "#5b4985" : "white",
+                  };
+                }}
+              >
+                Login
+              </NavLink>
+            </li>
+          )}
+          {!username && (
+            <li>
+              <NavLink
+                to="/register"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "#5b4985" : "white",
+                  };
+                }}
+              >
+                Register
+              </NavLink>
+            </li>
+          )}
+          {username && (
+            <li>
+              <NavLink
+                to="/add-movie"
+                style={({ isActive }) => {
+                  return {
+                    color: isActive ? "#5b4985" : "white",
+                  };
+                }}
+              >
+                Add Movie
+              </NavLink>
+            </li>
+          )}
+          {username && (
+            <li>
+              <span className={styles.username}>Welcome , {username}</span>
+              <button onClick={onLogoutHandler} className={styles.button}>
+                Logout
+              </button>
+            </li>
+          )}
+        </ul>
+      </nav>
+    </header>
   );
 };

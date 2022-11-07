@@ -1,4 +1,4 @@
-.headerWrapper {
+.header {
   display: flex;
   gap: 1rem;
   padding: 1rem 0;
@@ -8,9 +8,27 @@
   align-items: center;
 }
 
-.links {
-  text-decoration: none;
+.logo {
+  font-size: 2rem;
   color: white;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav li {
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .username {

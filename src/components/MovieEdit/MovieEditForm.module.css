@@ -1,0 +1,77 @@
+.controlGroup {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  column-gap: 1rem;
+  flex-direction: column;
+  justify-self: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #7b7b7b;
+}
+
+.formControl {
+  margin-bottom: 1rem;
+}
+
+.formControl input,
+.formControl label {
+  margin: auto;
+  display: block;
+}
+
+.formControl label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.formControl input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #000;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.formControl textarea {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #000;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.formControl input:focus {
+  outline: none;
+  border-color: #240370;
+  background-color: #e0d4fd;
+}
+
+.controlGroup .formControl {
+  min-width: 15rem;
+}
+
+.formActions button {
+  background-color: #240370;
+  color: white;
+  border: 1px solid #240370;
+  padding: 14px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formActions button:hover,
+.formActions button:active {
+  background-color: #33059e;
+  border-color: #33059e;
+}
+
+.formActions button:disabled,
+.formActions button:disabled:hover,
+.formActions button:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}

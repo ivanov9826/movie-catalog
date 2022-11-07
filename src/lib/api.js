@@ -51,15 +51,29 @@ export const getOne = async (id) => {
 };
 
 export const removeMovie = (id) => {
-  fetch(
-    `https://movie-catalog-i-default-rtdb.europe-west1.firebasedatabase.app/movies/${id}.json`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  fetch(`${singleMovieUrl}${id}.json`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return null;
+};
+
+export const updateMovie = async (id, movie) => {
+  const response = await fetch(`${singleMovieUrl}${id}.json`, {
+    method: "PATCH",
+    body: JSON.stringify(movie),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || "Could not add movie!");
+  }
 
   return null;
 };
