@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/user-context";
 import { addMovie } from "../../lib/api";
+import tabTitle from "../../lib/tabTitle";
 
 export const MovieForm = () => {
+  tabTitle("Add Movie");
   const userCtx = useContext(UserContext);
   const username = userCtx.user;
 

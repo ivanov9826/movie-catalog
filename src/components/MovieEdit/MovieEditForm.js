@@ -2,10 +2,12 @@ import { useRef, useEffect, useState } from "react";
 import styles from "./MovieEditForm.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { updateMovie, getOne } from "../../lib/api";
+import tabTitle from "../../lib/tabTitle";
 
 export const MovieEditForm = () => {
   const [movie, setMovie] = useState({});
   const { id } = useParams();
+  tabTitle("Edit");
 
   const navigate = useNavigate();
 

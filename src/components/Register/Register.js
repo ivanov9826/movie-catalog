@@ -4,8 +4,10 @@ import useInput from "../../hooks/useInput";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../../context/user-context";
+import tabTitle from "../../lib/tabTitle";
 
 export const Register = () => {
+  tabTitle("Register");
   const navigate = useNavigate();
   const userCtx = useContext(UserContext);
 

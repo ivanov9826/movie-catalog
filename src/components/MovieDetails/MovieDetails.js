@@ -5,6 +5,7 @@ import UserContext from "../../context/user-context";
 import { getOne, removeMovie } from "../../lib/api";
 import styles from "./MovieDetails.module.css";
 import { NavLink } from "react-router-dom";
+import tabTitle from "../../lib/tabTitle";
 
 export const MovieDetails = () => {
   const { user } = useContext(UserContext);
@@ -12,6 +13,7 @@ export const MovieDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   let isAuthor = false;
+  tabTitle(movie.title);
 
   useEffect(() => {
     getOne(id).then((result) => {

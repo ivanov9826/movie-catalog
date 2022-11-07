@@ -2,8 +2,10 @@ import { useContext } from "react";
 import UserContext from "../../context/user-context";
 import styles from "./Login.module.css";
 import useInput from "../../hooks/useInput";
+import tabTitle from "../../lib/tabTitle";
 
 export const Login = () => {
+  tabTitle("Login");
   const userCtx = useContext(UserContext);
 
   const isSixSymbols = (pass) => pass.length > 5;
