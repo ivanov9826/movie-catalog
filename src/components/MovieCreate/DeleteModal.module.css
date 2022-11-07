@@ -1,0 +1,68 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 35vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  animation: slide-down 300ms ease-out forwards;
+}
+
+.btnContainer {
+  display: flex;
+  padding: 1rem 1rem;
+  justify-content: center;
+}
+.btnContainer button {
+  width: 20%;
+  margin: 0.5rem;
+  color: white;
+  border: 1px solid #240370;
+  padding: 14px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.cancelBtn {
+  background-color: hsl(110, 60%, 28%);
+}
+
+.deleteBtn {
+  background-color: hsl(0, 100%, 50%);
+}
+
+.content {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

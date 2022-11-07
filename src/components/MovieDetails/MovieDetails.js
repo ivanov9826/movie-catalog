@@ -1,17 +1,20 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import UserContext from "../../context/user-context";
-import { getOne, removeMovie } from "../../lib/api";
+import { getOne } from "../../lib/api";
 import styles from "./MovieDetails.module.css";
 import { NavLink } from "react-router-dom";
 import tabTitle from "../../lib/tabTitle";
+import DeleteModal from "../MovieCreate/DeleteModal";
 
 export const MovieDetails = () => {
   const { user } = useContext(UserContext);
   const [movie, setMovie] = useState({});
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const { id } = useParams();
-  const navigate = useNavigate();
+
   let isAuthor = false;
   tabTitle(movie.title);
 
@@ -25,28 +28,36 @@ export const MovieDetails = () => {
     isAuthor = true;
   }
 
-  const onDeleteHandler = () => {
-    removeMovie(id);
-    navigate("/catalog");
+  const openDeletePrompt = () => {
+    setIsDeleting(true);
+  };
+
+  const closeDeletePrompt = () => {
+    setIsDeleting(false);
   };
 
   return (
-    <div className={styles.cardContent}>
-      <img src={movie.poster} className={styles.img} alt="Movie Poster" />
-      <h2 className={styles.title}>{movie.title}</h2>
-      <p className={styles.director}>{movie.director}</p>
-      <span className={styles.details}>{movie.details}</span>
-      {isAuthor && (
-        <div className={styles.buttons}>
-          <button className={styles.button} onClick={onDeleteHandler}>
-            Delete
-          </button>
-
-          <NavLink to={`/edit-movie/${id}`} className={styles.link}>
-            Edit
-          </NavLink>
-        </div>
+    <>
+      {isDeleting && (
+        <DeleteModal movie={movie.title} onCancel={closeDeletePrompt} id={id} />
       )}
-    </div>
+      <div className={styles.cardContent}>
+        <img src={movie.poster} className={styles.img} alt="Movie Poster" />
+        <h2 className={styles.title}>{movie.title}</h2>
+        <p className={styles.director}>{movie.director}</p>
+        <span className={styles.details}>{movie.details}</span>
+        {isAuthor && (
+          <div className={styles.buttons}>
+            <button className={styles.button} onClick={openDeletePrompt}>
+              Delete
+            </button>
+
+            <NavLink to={`/edit-movie/${id}`} className={styles.link}>
+              Edit
+            </NavLink>
+          </div>
+        )}
+      </div>
+    </>
   );
 };

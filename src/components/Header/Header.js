@@ -15,7 +15,6 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>Movie Catalog</div>
       <nav className={styles.nav}>
         <ul>
           <li>
@@ -26,7 +25,6 @@ export const Header = () => {
                   color: isActive ? "#5b4985" : "white",
                 };
               }}
-              activeClassName={styles.active}
             >
               Home
             </NavLink>
