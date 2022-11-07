@@ -5,7 +5,10 @@
   border-color: white;
   text-align: center;
   color: white;
-  width: 20rem;
+  width: 19rem;
+  height: auto;
+  margin-bottom: 4rem;
+  margin-left: 1rem;
 }
 
 .detailsButton {
@@ -20,6 +23,15 @@
   margin-top: auto;
 }
 
-.names {
-  color: white;
+.title {
+  font-size: 28px;
+}
+
+.director {
+  font-size: 16px;
+}
+
+.img {
+  height: 300px;
+  width: 300px;
 }
