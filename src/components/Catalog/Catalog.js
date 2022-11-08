@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { getAll } from "../../lib/api";
 import { MovieCard } from "../MovieCard/MovieCard";
@@ -13,7 +13,9 @@ export const Catalog = () => {
 
   useEffect(() => {
     getAll().then((result) => {
-      setMovies(result);
+      if (movies.length < result.length) {
+        setMovies(result);
+      }
     });
   }, [movies]);
 

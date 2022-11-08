@@ -1,5 +1,5 @@
 export const baseUrl =
-  "https://movie-catalog-i-default-rtdb.europe-west1.firebasedatabase.app/movies";
+  "https://movie-catalog-i-default-rtdb.europe-west1.firebasedatabase.app/movies.json";
 
 export const singleMovieUrl =
   "https://movie-catalog-i-default-rtdb.europe-west1.firebasedatabase.app/movies/";
