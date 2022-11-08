@@ -9,6 +9,7 @@
   height: auto;
   margin-bottom: 4rem;
   margin-left: 1rem;
+  box-shadow: 4px 5px 5px #000;
 }
 
 .detailsButton {
