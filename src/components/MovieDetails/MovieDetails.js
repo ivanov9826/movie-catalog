@@ -1,32 +1,32 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getOne } from "../../lib/api";
 import styles from "./MovieDetails.module.css";
 import { NavLink } from "react-router-dom";
 import tabTitle from "../../lib/tabTitle";
 import DeleteModal from "../MovieCreate/DeleteModal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getOneMovie } from "../../store/movieActions";
 
 export const MovieDetails = () => {
   const user = useSelector((state) => state.auth.user);
-  const [movie, setMovie] = useState({});
+  const dispatch = useDispatch();
+
+  const [isAuthor, setIsAuthor] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const { id } = useParams();
 
-  let isAuthor = false;
+  const movie = useSelector((state) => state.movies.selectedMovie);
+
   tabTitle(movie.title);
 
   useEffect(() => {
-    getOne(id).then((result) => {
-      setMovie(result);
-    });
-  }, [id]);
-
-  if (user === movie.addedBy) {
-    isAuthor = true;
-  }
+    dispatch(getOneMovie(id));
+    if (user === movie.addedBy) {
+      setIsAuthor(true);
+    }
+  }, [user, movie.addedBy, dispatch, id]);
 
   const openDeletePrompt = () => {
     setIsDeleting(true);

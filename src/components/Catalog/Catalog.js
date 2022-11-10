@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { getAll } from "../../lib/api";
+import { getAllMovies } from "../../store/movieActions";
 import { MovieCard } from "../MovieCard/MovieCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import tabTitle from "../../lib/tabTitle";
@@ -11,13 +11,13 @@ import { useDispatch, useSelector } from "react-redux";
 export const Catalog = () => {
   tabTitle("Catalog");
 
-  const movies = useSelector((state) => state.movies.movies);
-
   const dispatch = useDispatch();
+
+  const movies = useSelector((state) => state.movies.movies);
 
   useEffect(() => {
     dispatch(getAllMovies());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

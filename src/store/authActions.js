@@ -1,4 +1,4 @@
-import { authActions } from "./auth";
+import { authActions } from "./authSlice";
 import { loginUrl, regUrl } from "../constants/baseUrl";
 import usernameNormalizer from "./usernameNormalizer";
 

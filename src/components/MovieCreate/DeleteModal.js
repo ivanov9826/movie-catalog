@@ -1,12 +1,16 @@
 import styles from "./DeleteModal.module.css";
-import { removeMovie } from "../../lib/api";
+
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteMovie } from "../../store/movieActions";
 
 const DeleteModal = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onDeleteHandler = () => {
-    removeMovie(props.id);
+    dispatch(deleteMovie(props.id));
+
     navigate("/catalog");
   };
 

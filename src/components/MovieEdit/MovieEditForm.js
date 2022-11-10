@@ -1,13 +1,17 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import styles from "./MovieEditForm.module.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateMovie, getOne } from "../../lib/api";
+
 import tabTitle from "../../lib/tabTitle";
+import { useDispatch, useSelector } from "react-redux";
+import { editMovie, getOneMovie } from "../../store/movieActions";
+import { useEffect } from "react";
 
 export const MovieEditForm = () => {
-  const [movie, setMovie] = useState({});
   const { id } = useParams();
   tabTitle("Edit");
+
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -16,11 +20,13 @@ export const MovieEditForm = () => {
   const posterInputRef = useRef();
   const detailsInputRef = useRef();
 
+  const movie = useSelector((state) => state.movies.selectedMovie);
+
   useEffect(() => {
-    getOne(id).then((result) => {
-      setMovie(result);
-    });
-  }, [id]);
+    dispatch(getOneMovie(id));
+  }, [dispatch, id]);
+
+  // Add getOneMovie
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -37,8 +43,9 @@ export const MovieEditForm = () => {
     };
 
     try {
-      updateMovie(id, newMovie);
-      navigate("/catalog");
+      dispatch(editMovie(id, newMovie));
+
+      navigate(`/catalog/${id}`);
     } catch (error) {
       console.log(error);
     }

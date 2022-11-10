@@ -2,14 +2,17 @@ import { useRef } from "react";
 import styles from "./MovieForm.module.css";
 import { useNavigate } from "react-router-dom";
 
-import { addMovie } from "../../lib/api";
+// import { addMovie } from "../../lib/api";
 import tabTitle from "../../lib/tabTitle";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addMovie } from "../../store/movieActions";
 
 export const MovieForm = () => {
   tabTitle("Add Movie");
 
   const user = useSelector((state) => state.auth.user);
+
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -33,7 +36,7 @@ export const MovieForm = () => {
       addedBy: user,
     };
     try {
-      addMovie(newMovie);
+      dispatch(addMovie(newMovie));
       navigate("/catalog");
     } catch (error) {
       console.log(error);
@@ -63,11 +66,7 @@ export const MovieForm = () => {
         </div>
         <div className={styles.formControl}>
           <label>Poster:</label>
-          <input
-            type="url"
-            placeholder="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg"
-            ref={posterInputRef}
-          />
+          <input type="url" placeholder="URL..." ref={posterInputRef} />
         </div>
         <div className={styles.formControl}>
           <label>Details:</label>
