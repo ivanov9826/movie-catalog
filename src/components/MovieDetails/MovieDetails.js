@@ -1,15 +1,15 @@
-import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import UserContext from "../../context/user-context";
+
 import { getOne } from "../../lib/api";
 import styles from "./MovieDetails.module.css";
 import { NavLink } from "react-router-dom";
 import tabTitle from "../../lib/tabTitle";
 import DeleteModal from "../MovieCreate/DeleteModal";
+import { useSelector } from "react-redux";
 
 export const MovieDetails = () => {
-  const { user } = useContext(UserContext);
+  const user = useSelector((state) => state.auth.user);
   const [movie, setMovie] = useState({});
   const [isDeleting, setIsDeleting] = useState(false);
 

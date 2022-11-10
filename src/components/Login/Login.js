@@ -1,19 +1,22 @@
-import { useContext } from "react";
-import UserContext from "../../context/user-context";
+import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import useInput from "../../hooks/useInput";
 import tabTitle from "../../lib/tabTitle";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/authActions";
+import { useEffect } from "react";
+
+const isSixSymbols = (pass) => pass.length > 5;
+const isEmail = (email) => email.includes("@");
 
 export const Login = () => {
   tabTitle("Login");
-  const userCtx = useContext(UserContext);
 
-  const isSixSymbols = (pass) => pass.length > 5;
-  const isEmail = (email) => email.includes("@");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     value: emailValue,
-
     hasError: emailHasError,
     setInputValueHandler: setEmailValueHandler,
     onBlurHandler: onEmailBlurHandler,
@@ -21,23 +24,31 @@ export const Login = () => {
 
   const {
     value: passValue,
-
     hasError: passHasError,
     setInputValueHandler: setPassValueHandler,
     onBlurHandler: onPassBlurHandler,
   } = useInput(isSixSymbols);
 
+  const hasError = useSelector((state) => state.auth.hasError);
+  const username = useSelector((state) => state.auth.user);
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    userCtx.login(emailValue, passValue);
+    dispatch(login(emailValue, passValue));
   };
+
+  useEffect(() => {
+    if (username != null) {
+      navigate("/");
+    }
+  }, [username, navigate]);
 
   return (
     <form id="login" onSubmit={onSubmitHandler}>
       <div className={styles.controlGroup}>
         <h1>Login</h1>
-        {userCtx.hasError && (
+        {hasError && (
           <p className={styles.errorText}>Wrong username or password!</p>
         )}
         <div className={styles.formControl}>

@@ -1,15 +1,15 @@
 import { useRef } from "react";
 import styles from "./MovieForm.module.css";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import UserContext from "../../context/user-context";
+
 import { addMovie } from "../../lib/api";
 import tabTitle from "../../lib/tabTitle";
+import { useSelector } from "react-redux";
 
 export const MovieForm = () => {
   tabTitle("Add Movie");
-  const userCtx = useContext(UserContext);
-  const username = userCtx.user;
+
+  const user = useSelector((state) => state.auth.user);
 
   const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ export const MovieForm = () => {
       poster: posterInputValue,
       details: detailsInputValue,
       dateAdded: new Date(),
-      addedBy: username,
+      addedBy: user,
     };
     try {
       addMovie(newMovie);

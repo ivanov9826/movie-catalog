@@ -1,20 +1,21 @@
 .cardContent {
   display: flex;
   flex-direction: column;
-  border-style: solid;
-  border-color: white;
+  /* border-style: solid;
+  border-color: white; */
   text-align: center;
   color: white;
   width: 19rem;
   height: auto;
   margin-bottom: 4rem;
   margin-left: 1rem;
-  box-shadow: 4px 5px 5px #000;
+  background-color: rgb(25, 25, 25);
+  border-radius: 1rem;
 }
 
 .detailsButton {
   background-color: #2a265f;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+
   color: #fff;
   font-size: 20px;
   text-decoration: none;
@@ -22,6 +23,8 @@
   letter-spacing: 1px;
   padding: 10px;
   margin-top: auto;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .title {
@@ -34,5 +37,7 @@
 
 .img {
   height: 300px;
-  width: 300px;
+  width: 100%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }

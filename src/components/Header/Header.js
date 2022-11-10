@@ -1,15 +1,16 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import UserContext from "../../context/user-context";
+
+import { authActions } from "../../store/auth";
 import styles from "./Header.module.css";
 
 export const Header = () => {
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userCtx = useContext(UserContext);
-  const username = userCtx.user || null;
 
   const onLogoutHandler = () => {
-    userCtx.logout();
+    dispatch(authActions.logout());
     navigate("/");
   };
 
@@ -41,7 +42,7 @@ export const Header = () => {
               Catalog
             </NavLink>
           </li>
-          {!username && (
+          {!user && (
             <li>
               <NavLink
                 to="/login"
@@ -55,7 +56,7 @@ export const Header = () => {
               </NavLink>
             </li>
           )}
-          {!username && (
+          {!user && (
             <li>
               <NavLink
                 to="/register"
@@ -69,7 +70,7 @@ export const Header = () => {
               </NavLink>
             </li>
           )}
-          {username && (
+          {user && (
             <li>
               <NavLink
                 to="/add-movie"
@@ -83,9 +84,9 @@ export const Header = () => {
               </NavLink>
             </li>
           )}
-          {username && (
+          {user && (
             <li>
-              <span className={styles.username}>Welcome , {username}</span>
+              <span className={styles.username}>Welcome , {user}</span>
               <button onClick={onLogoutHandler} className={styles.button}>
                 Logout
               </button>

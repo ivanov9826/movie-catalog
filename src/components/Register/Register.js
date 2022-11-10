@@ -2,17 +2,22 @@ import styles from "./Register.module.css";
 
 import useInput from "../../hooks/useInput";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import UserContext from "../../context/user-context";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { register } from "../../store/authActions";
+import { useEffect } from "react";
 import tabTitle from "../../lib/tabTitle";
+
+const isSixSymbols = (pass) => pass.length > 5;
+const isEmail = (email) => email.includes("@");
 
 export const Register = () => {
   tabTitle("Register");
   const navigate = useNavigate();
-  const userCtx = useContext(UserContext);
 
-  const isSixSymbols = (pass) => pass.length > 5;
-  const isEmail = (email) => email.includes("@");
+  const dispatch = useDispatch();
+
+  const [formIsValid, setFormIsValid] = useState(false);
 
   const {
     value: emailValue,
@@ -20,7 +25,6 @@ export const Register = () => {
     hasError: emailHasError,
     setInputValueHandler: setEmailValueHandler,
     onBlurHandler: onEmailBlurHandler,
-    reset: emailReset,
   } = useInput(isEmail);
 
   const {
@@ -29,7 +33,6 @@ export const Register = () => {
     hasError: passHasError,
     setInputValueHandler: setPassValueHandler,
     onBlurHandler: onPassBlurHandler,
-    reset: passReset,
   } = useInput(isSixSymbols);
 
   const {
@@ -38,10 +41,7 @@ export const Register = () => {
     hasError: confirmPassHasError,
     setInputValueHandler: setConfirmPassValueHandler,
     onBlurHandler: onConfirmPassBlurHandler,
-    reset: confirmPassReset,
   } = useInput((value) => value === passValue && value.length !== 0);
-
-  let formIsValid = false;
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -49,18 +49,16 @@ export const Register = () => {
       return;
     }
 
-    userCtx.register(emailValue, passValue);
-
-    emailReset();
-    passReset();
-    confirmPassReset();
+    dispatch(register(emailValue, passValue));
 
     navigate("/");
   };
 
-  if (emailIsValid && passIsValid && confirmPassIsValid) {
-    formIsValid = true;
-  }
+  useEffect(() => {
+    if (emailIsValid && passIsValid && confirmPassIsValid) {
+      setFormIsValid(true);
+    }
+  }, [emailIsValid, passIsValid, confirmPassIsValid]);
 
   return (
     <form id="register" onSubmit={onSubmitHandler}>
