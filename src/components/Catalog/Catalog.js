@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { getAll } from "../../lib/api";
 import { MovieCard } from "../MovieCard/MovieCard";
@@ -6,18 +6,18 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import tabTitle from "../../lib/tabTitle";
 
 import styles from "./Catalog.module.css";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Catalog = () => {
   tabTitle("Catalog");
-  const [movies, setMovies] = useState([]);
+
+  const movies = useSelector((state) => state.movies.movies);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getAll().then((result) => {
-      if (movies.length < result.length) {
-        setMovies(result);
-      }
-    });
-  }, [movies]);
+    dispatch(getAllMovies());
+  }, []);
 
   return (
     <div>

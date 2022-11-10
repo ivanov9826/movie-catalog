@@ -61,7 +61,7 @@ export const removeMovie = (id) => {
   return null;
 };
 
-export const updateMovie = async (id, movie) => {
+export const editMovie = async (id, movie) => {
   const response = await fetch(`${singleMovieUrl}${id}.json`, {
     method: "PATCH",
     body: JSON.stringify(movie),
