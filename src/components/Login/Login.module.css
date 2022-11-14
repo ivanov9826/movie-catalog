@@ -72,3 +72,8 @@
   color: red;
   margin-top: 0.5rem;
 }
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}

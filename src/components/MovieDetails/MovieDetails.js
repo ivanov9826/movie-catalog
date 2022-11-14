@@ -19,14 +19,14 @@ export const MovieDetails = () => {
 
   const movie = useSelector((state) => state.movies.selectedMovie);
 
-  tabTitle(movie.title);
-
   useEffect(() => {
     dispatch(getOneMovie(id));
     if (user === movie.addedBy) {
       setIsAuthor(true);
     }
   }, [user, movie.addedBy, dispatch, id]);
+
+  tabTitle(movie.title);
 
   const openDeletePrompt = () => {
     setIsDeleting(true);
@@ -44,7 +44,7 @@ export const MovieDetails = () => {
       <div className={styles.cardContent}>
         <img src={movie.poster} className={styles.img} alt="Movie Poster" />
         <h2 className={styles.title}>{movie.title}</h2>
-        <p className={styles.director}>{movie.director}</p>
+        <p className={styles.director}>Director : {movie.director}</p>
         <span className={styles.details}>{movie.details}</span>
         {isAuthor && (
           <div className={styles.buttons}>

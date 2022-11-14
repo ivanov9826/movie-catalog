@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import useInput from "../../hooks/useInput";
 import tabTitle from "../../lib/tabTitle";
@@ -84,11 +84,10 @@ export const Login = () => {
             Login
           </button>
         </div>
-        <p className="field">
-          <span>
-            If you already have profile click <a href="/login">here</a>
-          </span>
-        </p>
+
+        <Link to="/register" className={styles.link}>
+          If you dont have a profile click here
+        </Link>
       </div>
     </form>
   );

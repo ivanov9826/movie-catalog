@@ -1,8 +1,6 @@
 .cardContent {
   display: flex;
   flex-direction: column;
-  /* border-style: solid;
-  border-color: white; */
   text-align: center;
   color: white;
   width: 19rem;

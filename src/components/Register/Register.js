@@ -1,7 +1,7 @@
 import styles from "./Register.module.css";
 
 import useInput from "../../hooks/useInput";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { register } from "../../store/authActions";
@@ -112,9 +112,9 @@ export const Register = () => {
         </div>
 
         <p className="field">
-          <span>
-            If you already have profile click <a href="/login">here</a>
-          </span>
+          <Link to="/register" className={styles.link}>
+            If you already have a profile click here
+          </Link>
         </p>
       </div>
     </form>
