@@ -6,7 +6,6 @@ import styles from "./Home.module.css";
 import { getAllMovies } from "../../store/movieActions";
 import Carousel from "../Carousel/Carousel";
 import { useState } from "react";
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export const Home = () => {
   tabTitle("Home");
@@ -23,7 +22,7 @@ export const Home = () => {
   useEffect(() => {
     const randomNumber = randomInteger(0, movies.length - 1);
     const randomMovie = movies[randomNumber];
-    if (randomMovie == undefined) {
+    if (randomMovie === undefined) {
       return;
     }
     setFeaturedMovie(randomMovie);
