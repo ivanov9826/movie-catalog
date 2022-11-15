@@ -26,8 +26,6 @@ export const MovieEditForm = () => {
     dispatch(getOneMovie(id));
   }, [dispatch, id]);
 
-  // Add getOneMovie
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const titleInputValue = titleInputRef.current.value;

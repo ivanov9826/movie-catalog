@@ -1,0 +1,19 @@
+.featuredWrapper {
+  max-width: 80%;
+  margin: 1rem auto;
+  display: flex;
+}
+
+.textWrapper {
+  color: white;
+  position: absolute;
+  margin-left: 15rem;
+}
+
+.contentWrapper {
+  margin: auto;
+}
+
+.contentWrapper img {
+  max-height: 360px;
+}

@@ -2,7 +2,6 @@ import { useRef } from "react";
 import styles from "./MovieForm.module.css";
 import { useNavigate } from "react-router-dom";
 
-// import { addMovie } from "../../lib/api";
 import tabTitle from "../../lib/tabTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie } from "../../store/movieActions";

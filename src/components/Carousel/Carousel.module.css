@@ -4,8 +4,9 @@
   margin: auto;
   color: white;
   position: fixed;
-  bottom: 12rem;
-  left: 15rem;
+  bottom: 10rem;
+  left: 10rem;
+  border-radius: 1rem;
 }
 
 .slider {
@@ -23,12 +24,14 @@
   cursor: pointer;
   overflow: hidden;
   margin: auto;
+  border-radius: 1rem;
 }
 
 .slide img {
   width: 191px;
   height: 192px;
   margin: auto;
+  border-radius: 1rem;
 }
 
 .content {

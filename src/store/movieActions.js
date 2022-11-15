@@ -1,10 +1,6 @@
 import { movieActions } from "./movieSlice";
 import { baseUrl, singleMovieUrl } from "../constants/baseUrl";
 
-//Add get one movie
-// fix thunks
-// implement thunk inside thunk - for loading purpose *
-
 export const getAllMovies = () => {
   return async (dispatch) => {
     const getAllRequest = async () => {
