@@ -6,11 +6,12 @@
 
 .textWrapper {
   color: white;
-  position: absolute;
-  margin-left: 15rem;
+
+  display: inline-block;
 }
 
 .contentWrapper {
+  display: inline-block;
   margin: auto;
 }
 

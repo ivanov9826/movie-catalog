@@ -1,10 +1,11 @@
 .cardContent {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  position: relative;
   color: white;
   width: 19rem;
-  height: auto;
+  height: 32rem;
+  text-align: center;
   margin-bottom: 4rem;
   margin-left: 1rem;
   background-color: rgb(25, 25, 25);
@@ -12,17 +13,21 @@
 }
 
 .detailsButton {
+  position: absolute;
+  bottom: 10px;
+  left: 100px;
   background-color: #2a265f;
-
   color: #fff;
   font-size: 20px;
   text-decoration: none;
   text-align: center;
   letter-spacing: 1px;
-  padding: 10px;
-  margin-top: auto;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  padding: 20px;
+  border-radius: 1rem;
+}
+
+.detailsButton:hover {
+  background-color: #33059e;
 }
 
 .title {
