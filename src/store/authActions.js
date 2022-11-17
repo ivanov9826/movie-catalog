@@ -1,6 +1,6 @@
 import { authActions } from "./authSlice";
 import { loginUrl, regUrl } from "../constants/baseUrl";
-import usernameNormalizer from "./usernameNormalizer";
+import usernameNormalizer from "../lib/usernameNormalizer";
 
 export const login = (email, password) => {
   return async (dispatch) => {
