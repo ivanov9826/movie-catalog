@@ -15,14 +15,14 @@
 .detailsButton {
   position: absolute;
   bottom: 10px;
-  left: 100px;
+  left: 90px;
   background-color: #2a265f;
   color: #fff;
   font-size: 20px;
   text-decoration: none;
   text-align: center;
   letter-spacing: 1px;
-  padding: 20px;
+  padding: 10px 30px 10px 30px;
   border-radius: 1rem;
 }
 
