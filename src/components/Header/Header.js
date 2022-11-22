@@ -33,6 +33,7 @@ export const Header = () => {
           <li>
             <NavLink
               to="/catalog"
+              end
               style={({ isActive }) => {
                 return {
                   color: isActive ? "#5b4985" : "white",
