@@ -3,9 +3,8 @@
   max-height: 10rem;
   margin: auto;
   color: white;
-  position: fixed;
+  position: relative;
   bottom: 10rem;
-  left: 10rem;
   border-radius: 1rem;
 }
 
