@@ -1,4 +1,4 @@
-.featuredWrapper {
+/* .featuredWrapper {
   max-width: 80%;
   margin: 1rem auto;
   display: flex;
@@ -17,4 +17,12 @@
 
 .contentWrapper img {
   max-height: 360px;
+} */
+/* 
+.carouselContainer {
+  display: block;
 }
+
+.mainContainer {
+  position: relative;
+} */

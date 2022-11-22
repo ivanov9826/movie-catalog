@@ -1,0 +1,62 @@
+.featuredWrapper {
+  position: relative;
+}
+
+.backgroundWrapper {
+  height: 40rem;
+  margin: auto;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 20rem;
+  position: relative;
+}
+
+.backgroundWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  z-index: 1;
+}
+
+.backgroundWrapper img {
+  max-height: 40rem;
+  width: 90%;
+  margin: auto;
+  display: block;
+  object-fit: none;
+  z-index: -1;
+}
+
+.textWrapper h2 {
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.contentWrapper {
+  bottom: 0px;
+  left: 30%;
+  position: absolute;
+  z-index: 2;
+  border: 2px solid white;
+}
+
+.contentWrapper img {
+  display: inline-block;
+  max-height: 11rem;
+}
+
+.contentWrapper h3 {
+  display: inline-block;
+  text-align: top;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
