@@ -32,7 +32,6 @@ export const Home = () => {
   return (
     <div className={styles.mainContainer}>
       <FeaturedMovie movie={featuredMovie} />
-
       <Carousel movies={movies} />
     </div>
   );

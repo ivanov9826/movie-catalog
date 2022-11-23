@@ -1,3 +1,16 @@
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  width: 680px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  transition: all 0.4s;
+  font-family: "Montserrat", sans-serif;
+}
+
 .title {
   color: white;
   text-align: center;
@@ -17,18 +30,7 @@
   color: white;
   text-align: center;
   padding-bottom: 2rem;
-}
-
-.cardContent {
-  display: flex;
-  flex-direction: column;
-  width: 680px;
-  margin: 30px auto;
-  overflow: hidden;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: white;
-  transition: all 0.4s;
+  margin: 0 2rem;
 }
 
 .buttons {
@@ -40,17 +42,17 @@
   justify-content: right;
 }
 
-.button {
+.buttons__delete {
   background-color: hsl(0, 100%, 50%);
   padding: 14px;
   font-size: 21px;
   color: white;
-  text-decoration: none;
   border: 1px solid rgb(183, 183, 183);
   cursor: pointer;
+  font: inherit;
 }
 
-.link {
+.buttons__edit {
   margin-left: 10px;
   background-color: hsl(110, 60%, 28%);
   padding: 14px;
@@ -58,6 +60,7 @@
   color: white;
   text-decoration: none;
   border: 1px solid rgb(183, 183, 183);
+  font: inherit;
 }
 
 .img {

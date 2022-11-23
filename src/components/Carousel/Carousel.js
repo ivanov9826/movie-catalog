@@ -59,7 +59,7 @@ const Carousel = (props) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.mainContainer}>
       <h2>Latest Movies</h2>
       <Slider {...settings} className={styles.slider}>
         {sortedMovies.map((movie) => {

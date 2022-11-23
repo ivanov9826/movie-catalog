@@ -1,4 +1,4 @@
-.wrapper {
+.mainContainer {
   max-width: 80%;
   max-height: 10rem;
   margin: auto;
@@ -6,6 +6,7 @@
   position: relative;
   bottom: 10rem;
   border-radius: 1rem;
+  font-family: "Montserrat", sans-serif;
 }
 
 .slider {
@@ -13,8 +14,8 @@
 }
 
 .slide {
-  max-width: 191px;
-  height: 192px;
+  max-width: 11.5rem;
+  height: 12rem;
   background-color: rgb(25, 25, 25);
   display: inline;
   text-align: center;
@@ -27,33 +28,32 @@
 }
 
 .slide img {
-  width: 191px;
-  height: 192px;
-  margin: auto;
+  width: 12rem;
+  height: 12rem;
   border-radius: 1rem;
 }
 
 .content {
   opacity: 0;
-  font-size: 40px;
   position: absolute;
   top: 0;
   left: 0;
   color: #000000;
-  background-color: hwb(0 51% 49% / 0.933);
-  width: 191px;
-  height: 192px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 12rem;
+  height: 12rem;
   -webkit-transition: all 400ms ease-out;
   -moz-transition: all 400ms ease-out;
   -o-transition: all 400ms ease-out;
   -ms-transition: all 400ms ease-out;
   transition: all 400ms ease-out;
   text-align: center;
-  font-size: 24px;
 }
 
 .content p {
-  margin-top: 3rem;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 2rem;
 }
 .slide .content:hover {
   opacity: 1;

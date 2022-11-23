@@ -48,11 +48,14 @@ export const MovieDetails = () => {
         <span className={styles.details}>{movie.details}</span>
         {isAuthor && (
           <div className={styles.buttons}>
-            <button className={styles.button} onClick={openDeletePrompt}>
+            <button
+              className={styles.buttons__delete}
+              onClick={openDeletePrompt}
+            >
               Delete
             </button>
 
-            <NavLink to={`/edit-movie/${id}`} className={styles.link}>
+            <NavLink to={`/edit-movie/${id}`} className={styles.buttons__edit}>
               Edit
             </NavLink>
           </div>
