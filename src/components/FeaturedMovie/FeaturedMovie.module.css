@@ -1,12 +1,13 @@
 .featuredWrapper {
   position: relative;
+  max-width: 70rem;
+  margin: auto;
 }
 
 .backgroundWrapper {
   height: 40rem;
   margin: auto;
   overflow: hidden;
-  margin: auto;
   margin-bottom: 20rem;
   position: relative;
 }

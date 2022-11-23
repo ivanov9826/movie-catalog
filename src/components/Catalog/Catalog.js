@@ -20,8 +20,7 @@ export const Catalog = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1 className={styles.catalogHeader}>Catalog</h1>
+    <div className={styles.mainWrapper}>
       <div className={styles.cardWrapper}>
         {movies.length < 1 && <LoadingSpinner />}
         {movies.map((movie) => (
