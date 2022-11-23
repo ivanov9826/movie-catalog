@@ -28,7 +28,7 @@
 
 .backgroundWrapper img {
   max-height: 40rem;
-  width: 90%;
+  width: 70rem;
   margin: auto;
   display: block;
   object-fit: none;
@@ -43,20 +43,23 @@
 
 .contentWrapper {
   bottom: 0px;
-  left: 30%;
+  left: 25%;
   position: absolute;
   z-index: 2;
-  border: 2px solid white;
 }
 
 .contentWrapper img {
   display: inline-block;
   max-height: 11rem;
+  vertical-align: middle;
 }
 
 .contentWrapper h3 {
   display: inline-block;
-  text-align: top;
+  margin-top: 0;
+  margin-left: 1rem;
   color: white;
   font-family: "Montserrat", sans-serif;
+  vertical-align: top;
+  font-size: 32px;
 }
