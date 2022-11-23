@@ -16,7 +16,7 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
+      <nav className={styles.header__nav}>
         <ul>
           <li>
             <NavLink
@@ -87,8 +87,11 @@ export const Header = () => {
           )}
           {user && (
             <li>
-              <span className={styles.username}>Welcome , {user}</span>
-              <button onClick={onLogoutHandler} className={styles.button}>
+              <span className={styles.header__username}>Welcome , {user}</span>
+              <button
+                onClick={onLogoutHandler}
+                className={styles.header__logoutBtn}
+              >
                 Logout
               </button>
             </li>

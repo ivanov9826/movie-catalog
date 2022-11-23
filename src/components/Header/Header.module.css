@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.nav ul {
+.header__nav ul {
   list-style: none;
   display: flex;
   margin: 0;
@@ -16,25 +16,25 @@
   align-items: center;
 }
 
-.nav li {
+.header__nav li {
   margin-left: 1.5rem;
   font-size: 1.25rem;
 }
 
-.nav a {
+.header__nav a {
   text-decoration: none;
   color: #ffffff;
 }
 
-.username {
+.header__username {
   color: white;
   margin-left: 15rem;
 }
 
-.button {
+.header__logoutBtn {
   margin-left: 1rem;
   font: inherit;
-  background-color: transparent;
+  background-color: rgb(32, 32, 32);
   border: 1px solid white;
   color: white;
   font-weight: bold;
