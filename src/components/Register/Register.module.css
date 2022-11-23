@@ -1,14 +1,19 @@
 .controlGroup {
-  width: 40%;
-  margin: auto;
+  width: 30%;
+  margin: 4rem auto;
   display: flex;
   column-gap: 1rem;
   flex-direction: column;
   justify-self: center;
   text-align: center;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #7b7b7b;
+  border-radius: 1rem;
+  background-color: rgb(25, 25, 25);
+  font-family: "Montserrat", sans-serif;
+}
+
+.controlGroup h1 {
+  color: white;
 }
 
 .formControl {
@@ -22,6 +27,8 @@
 }
 
 .formControl label {
+  color: white;
+
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -30,7 +37,7 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #000;
-  width: 20rem;
+  width: 70%;
   max-width: 100%;
 }
 
@@ -51,6 +58,7 @@
   padding: 14px 20px;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .formActions button:hover,
@@ -75,7 +83,7 @@
 
 .link {
   text-decoration: none;
-  color: inherit;
+  color: white;
 }
 
 .fromWrapper {
