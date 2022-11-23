@@ -61,7 +61,11 @@ export const Register = () => {
   }, [emailIsValid, passIsValid, confirmPassIsValid]);
 
   return (
-    <form id="register" onSubmit={onSubmitHandler}>
+    <form
+      id="register"
+      onSubmit={onSubmitHandler}
+      className={styles.mainContainer}
+    >
       <div className={styles.controlGroup}>
         <h1>Register</h1>
         <div className={styles.formControl}>

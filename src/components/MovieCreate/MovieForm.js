@@ -42,7 +42,7 @@ export const MovieForm = () => {
     }
   };
   return (
-    <form onSubmit={onSubmitHandler}>
+    <form onSubmit={onSubmitHandler} className={styles.mainContainer}>
       <div className={styles.controlGroup}>
         <h1>Add Movie</h1>
         <div className={styles.formControl}>

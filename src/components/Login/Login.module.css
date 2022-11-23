@@ -1,3 +1,7 @@
+.mainContainer {
+  min-height: calc(100vh - 9.3rem);
+}
+
 .controlGroup {
   width: 30%;
   margin: 4rem auto;

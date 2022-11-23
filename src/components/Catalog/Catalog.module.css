@@ -1,5 +1,6 @@
-.mainWrapper {
+.mainContainer {
   margin-top: 3rem;
+  min-height: calc(100vh - 8.3rem);
 }
 
 .cardWrapper {

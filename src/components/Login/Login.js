@@ -45,7 +45,11 @@ export const Login = () => {
   }, [username, navigate]);
 
   return (
-    <form id="login" onSubmit={onSubmitHandler}>
+    <form
+      id="login"
+      onSubmit={onSubmitHandler}
+      className={styles.mainContainer}
+    >
       <div className={styles.controlGroup}>
         <h1>Login</h1>
         {hasError && (
