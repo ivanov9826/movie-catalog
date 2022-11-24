@@ -1,20 +1,23 @@
 .cardContent {
   display: flex;
   flex-direction: column;
-  width: 680px;
-  margin: 30px auto;
-  overflow: hidden;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: white;
-  transition: all 0.4s;
+  width: 42rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  border: solid white;
   font-family: "Montserrat", sans-serif;
+}
+
+.img {
+  height: 23rem;
+  width: 23rem;
+  align-self: center;
 }
 
 .title {
   color: white;
   text-align: center;
-  font-size: 36px;
+  font-size: 2.4rem;
   margin-bottom: 1rem;
   margin-top: 0.5rem;
 }
@@ -22,7 +25,7 @@
 .director {
   color: white;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   padding-bottom: 2rem;
 }
 
@@ -34,18 +37,16 @@
 }
 
 .buttons {
-  height: 10%;
   text-align: right;
-  padding-right: 15px;
-  padding-bottom: 40px;
-  display: flex;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   justify-content: right;
 }
 
 .buttons__delete {
   background-color: hsl(0, 100%, 50%);
-  padding: 14px;
-  font-size: 21px;
+  padding: 0.8rem;
+  font-size: 1.4rem;
   color: white;
   border: 1px solid rgb(183, 183, 183);
   cursor: pointer;
@@ -55,16 +56,10 @@
 .buttons__edit {
   margin-left: 10px;
   background-color: hsl(110, 60%, 28%);
-  padding: 14px;
-  font-size: 21px;
+  padding: 0.8rem;
+  font-size: 1.4rem;
   color: white;
   text-decoration: none;
   border: 1px solid rgb(183, 183, 183);
   font: inherit;
-}
-
-.img {
-  height: 360px;
-  width: 360px;
-  margin-left: 10rem;
 }
