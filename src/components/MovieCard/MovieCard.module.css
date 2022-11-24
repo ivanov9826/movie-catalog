@@ -1,30 +1,28 @@
-.cardContent {
+.mainContainer {
   display: flex;
   flex-direction: column;
-  position: relative;
+  justify-content: space-between;
   color: white;
   width: 19rem;
   height: 32rem;
   text-align: center;
-  margin-bottom: 4rem;
-  margin-left: 1rem;
+  margin: 2rem 1rem;
   background-color: rgb(25, 25, 25);
   border-radius: 1rem;
   font-family: "Montserrat", sans-serif;
 }
 
 .detailsButton {
-  position: absolute;
-  bottom: 10px;
-  left: 90px;
   background-color: #2a265f;
   color: #fff;
-  font-size: 20px;
+  font-size: 1.3rem;
   text-decoration: none;
-  text-align: center;
   letter-spacing: 1px;
-  padding: 10px 30px;
+  padding: 5px 30px;
   border-radius: 1rem;
+  width: 50%;
+  margin-bottom: 1rem;
+  align-self: center;
 }
 
 .detailsButton:hover {
@@ -32,15 +30,11 @@
 }
 
 .title {
-  font-size: 28px;
-}
-
-.director {
-  font-size: 16px;
+  font-size: 2rem;
 }
 
 .img {
-  height: 300px;
+  height: 19rem;
   width: 100%;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;

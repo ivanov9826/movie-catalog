@@ -3,7 +3,7 @@ import styles from "./MovieCard.module.css";
 
 export const MovieCard = ({ movie }) => {
   return (
-    <div className={styles.cardContent}>
+    <div className={styles.mainContainer}>
       <img className={styles.img} src={movie.poster} alt="Movie Poster" />
       <h2 className={styles.title}>{movie.title}</h2>
       <Link to={`/catalog/${movie.id}`} className={styles.detailsButton}>
