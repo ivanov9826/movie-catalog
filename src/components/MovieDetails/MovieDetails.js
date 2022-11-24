@@ -37,15 +37,15 @@ export const MovieDetails = () => {
   };
 
   return (
-    <div className={styles.mainContainer}>
+    <>
       {isDeleting && (
         <DeleteModal movie={movie.title} onCancel={closeDeletePrompt} id={id} />
       )}
-      <div className={styles.movieContainer}>
+      <div className={styles.cardContent}>
         <img src={movie.poster} className={styles.img} alt="Movie Poster" />
         <h2 className={styles.title}>{movie.title}</h2>
         <p className={styles.director}>Director : {movie.director}</p>
-        <p className={styles.details}>{movie.details}</p>
+        <span className={styles.details}>{movie.details}</span>
         {isAuthor && (
           <div className={styles.buttons}>
             <button
@@ -61,6 +61,6 @@ export const MovieDetails = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
