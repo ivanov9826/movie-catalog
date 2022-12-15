@@ -15,6 +15,9 @@ const movieSlice = createSlice({
     setMovieDetails(state, action) {
       state.selectedMovie = action.payload;
     },
+    clearMovieDetails(state) {
+      state.selectedMovie = {};
+    },
   },
 });
 

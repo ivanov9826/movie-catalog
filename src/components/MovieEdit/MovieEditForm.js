@@ -54,12 +54,7 @@ export const MovieEditForm = () => {
         <h1>Edit Movie</h1>
         <div className={styles.formControl}>
           <label>Movie Title:</label>
-          <input
-            type="text"
-            minLength="2"
-            ref={titleInputRef}
-            defaultValue={movie.title}
-          />
+          <input type="text" minLength="2" ref={titleInputRef} defaultValue={movie.title} />
         </div>
         <div className={styles.formControl}>
           <label>Director:</label>
@@ -76,12 +71,7 @@ export const MovieEditForm = () => {
         </div>
         <div className={styles.formControl}>
           <label>Details:</label>
-          <textarea
-            type="text"
-            rows="6"
-            ref={detailsInputRef}
-            defaultValue={movie.details}
-          />
+          <textarea type="text" rows="6" ref={detailsInputRef} defaultValue={movie.details} />
         </div>
         <div className={styles.formActions}>
           <button type="submit">Save</button>

@@ -100,8 +100,6 @@ export const editMovie = (id, movie) => {
 
     try {
       sendEditRequest();
-
-      dispatch(getAllMovies());
     } catch (error) {}
   };
 };

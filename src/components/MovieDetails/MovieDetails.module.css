@@ -1,4 +1,8 @@
-.cardContent {
+.mainContainer {
+  min-height: calc(100vh - 7.3rem);
+}
+
+.mainContent {
   display: flex;
   flex-direction: column;
   width: 42rem;
@@ -26,21 +30,19 @@
   color: white;
   text-align: center;
   font-size: 1.5rem;
-  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .details {
   color: white;
   text-align: center;
-  padding-bottom: 2rem;
-  margin: 0 2rem;
+  margin-bottom: 2rem;
 }
 
 .buttons {
-  text-align: right;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  justify-content: right;
+  align-self: flex-end;
 }
 
 .buttons__delete {

@@ -7,6 +7,7 @@ import tabTitle from "../../lib/tabTitle";
 import DeleteModal from "../MovieCreate/DeleteModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneMovie } from "../../store/movieActions";
+import { movieActions } from "../../store/movieSlice";
 
 export const MovieDetails = () => {
   const user = useSelector((state) => state.auth.user);
@@ -20,7 +21,10 @@ export const MovieDetails = () => {
   const movie = useSelector((state) => state.movies.selectedMovie);
 
   useEffect(() => {
-    dispatch(getOneMovie(id));
+    setTimeout(() => {
+      dispatch(getOneMovie(id));
+    }, 100);
+
     if (user === movie.addedBy) {
       setIsAuthor(true);
     }
@@ -36,22 +40,23 @@ export const MovieDetails = () => {
     setIsDeleting(false);
   };
 
+  useEffect(() => {
+    return () => {
+      dispatch(movieActions.clearMovieDetails());
+    };
+  }, []);
+
   return (
-    <>
-      {isDeleting && (
-        <DeleteModal movie={movie.title} onCancel={closeDeletePrompt} id={id} />
-      )}
-      <div className={styles.cardContent}>
+    <div className={styles.mainContainer}>
+      {isDeleting && <DeleteModal movie={movie.title} onCancel={closeDeletePrompt} id={id} />}
+      <div className={styles.mainContent}>
         <img src={movie.poster} className={styles.img} alt="Movie Poster" />
         <h2 className={styles.title}>{movie.title}</h2>
         <p className={styles.director}>Director : {movie.director}</p>
         <span className={styles.details}>{movie.details}</span>
         {isAuthor && (
           <div className={styles.buttons}>
-            <button
-              className={styles.buttons__delete}
-              onClick={openDeletePrompt}
-            >
+            <button className={styles.buttons__delete} onClick={openDeletePrompt}>
               Delete
             </button>
 
@@ -61,6 +66,6 @@ export const MovieDetails = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
