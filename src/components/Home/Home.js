@@ -7,6 +7,7 @@ import { getAllMovies } from "../../store/movieActions";
 import Carousel from "../Carousel/Carousel";
 import { useState } from "react";
 import FeaturedMovie from "../FeaturedMovie/FeaturedMovie";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export const Home = () => {
   tabTitle("Home");
@@ -31,7 +32,8 @@ export const Home = () => {
 
   return (
     <div className={styles.mainContainer}>
-      <FeaturedMovie movie={featuredMovie} />
+      {!featuredMovie.title && <LoadingSpinner />}
+      {featuredMovie.title && <FeaturedMovie movie={featuredMovie} />}
       <Carousel movies={movies} />
     </div>
   );
