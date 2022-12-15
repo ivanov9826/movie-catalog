@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import styles from "./MovieDetails.module.css";
 import { NavLink } from "react-router-dom";
 import tabTitle from "../../lib/tabTitle";
-import DeleteModal from "../MovieCreate/DeleteModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneMovie } from "../../store/movieActions";
 import { movieActions } from "../../store/movieSlice";
+import DeleteModal from "../MovieCreate/DeleteModal";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export const MovieDetails = () => {
   const user = useSelector((state) => state.auth.user);
@@ -49,23 +50,26 @@ export const MovieDetails = () => {
   return (
     <div className={styles.mainContainer}>
       {isDeleting && <DeleteModal movie={movie.title} onCancel={closeDeletePrompt} id={id} />}
-      <div className={styles.mainContent}>
-        <img src={movie.poster} className={styles.img} alt="Movie Poster" />
-        <h2 className={styles.title}>{movie.title}</h2>
-        <p className={styles.director}>Director : {movie.director}</p>
-        <span className={styles.details}>{movie.details}</span>
-        {isAuthor && (
-          <div className={styles.buttons}>
-            <button className={styles.buttons__delete} onClick={openDeletePrompt}>
-              Delete
-            </button>
+      {!movie.title && <LoadingSpinner />}
+      {movie.title && (
+        <div className={styles.mainContent}>
+          <img src={movie.poster} className={styles.img} alt="Movie Poster" />
+          <h2 className={styles.title}>{movie.title}</h2>
+          <p className={styles.director}>Director : {movie.director}</p>
+          <span className={styles.details}>{movie.details}</span>
+          {isAuthor && (
+            <div className={styles.buttons}>
+              <button className={styles.buttons__delete} onClick={openDeletePrompt}>
+                Delete
+              </button>
 
-            <NavLink to={`/edit-movie/${id}`} className={styles.buttons__edit}>
-              Edit
-            </NavLink>
-          </div>
-        )}
-      </div>
+              <NavLink to={`/edit-movie/${id}`} className={styles.buttons__edit}>
+                Edit
+              </NavLink>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
